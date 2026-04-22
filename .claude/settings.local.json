@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(node *)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(taskkill /PID 18620 /F)",
+      "Bash(cmd *)",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(cp \"C:\\\\Users\\\\hp\\\\.claude\\\\projects\\\\C--Users-hp-Desktop-HTML-octopub-website\\\\5474342c-68e3-44a9-b613-273319fef18a\\\\tool-results\\\\webfetch-1776769327611-aq7bw2.bin\" /tmp/design.gz)",
+      "Bash(gzip -d /tmp/design.gz)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p /tmp/design_files)",
+      "Bash(tar xf *)",
+      "Bash(cp \"C:\\\\Users\\\\hp\\\\.claude\\\\projects\\\\C--Users-hp-Desktop-HTML-octopub-website\\\\5474342c-68e3-44a9-b613-273319fef18a\\\\tool-results\\\\webfetch-1776769876912-a9kstv.bin\" /tmp/design2.gz)",
+      "Bash(gzip -d /tmp/design2.gz)",
+      "Bash(mkdir -p /tmp/design2_files)",
+      "Bash(gunzip -c \"webfetch-1776770829261-0vpzc3.bin\")",
+      "Bash(python3 -c \"import gzip,sys; data=gzip.decompress\\(open\\('webfetch-1776770829261-0vpzc3.bin','rb'\\).read\\(\\)\\); print\\(data[:50000].decode\\('utf-8','ignore'\\)\\)\")",
+      "Bash(npx next *)",
+      "PowerShell(Stop-Process *)",
+      "Bash(taskkill *)"
+    ]
+  }
+}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre Équipe — OctoPub Meknès</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: #1A1A1A; background: #fff; overflow-x: hidden; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.member-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.member-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.1) !important; }
+.member-card:hover .member-img { transform: scale(1.04); }
+.member-img { transition: transform 0.4s ease; }
+
+.value-card { transition: border-color 0.22s, box-shadow 0.22s; }
+.value-card:hover { border-color: #FE5E17 !important; box-shadow: 0 8px 28px rgba(254,94,23,0.1) !important; }
+
+.nav-link { transition: color 0.2s; color: #555; text-decoration: none; }
+.nav-link:hover { color: #1D60F1; }
+.footer-link { transition: color 0.2s; color: #AAAAAA; text-decoration: none; }
+.footer-link:hover { color: #FE5E17; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f4f4f4; }
+::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const C = {
+  orange:'#FE5E17', blue:'#1D60F1',
+  bgSoft:'#F4F4F4', border:'#E0E0E0',
+  text:'#1A1A1A', textSec:'#555555', textMuted:'#888888',
+  blueLight:'#EEF3FF', dark:'#1A1A1A',
+};
+
+function OctoPubLogo({ white = false, size = 36 }) {
+  const orange = white ? '#fff' : '#FE5E17';
+  const blue   = white ? '#fff' : '#1D60F1';
+  const gid    = white ? 'og-w2' : 'og2';
+  return (
+    <div style={{ display:'flex', alignItems:'center', gap:10 }}>
+      <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id={gid} x1="20" y1="10" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor={white ? '#fff' : '#FF8C00'} />
+            <stop offset="100%" stopColor={white ? 'rgba(255,255,255,0.7)' : '#FE5E17'} />
+          </linearGradient>
+        </defs>
+        <path d="M50 10 C28 10 12 26 12 48 C12 66 24 80 40 84 L40 72 C30 68 24 59 24 48 C24 33 36 22 50 22 C64 22 76 33 76 48 C76 59 70 68 60 72 L60 84 C76 80 88 66 88 48 C88 26 72 10 50 10Z" fill={`url(#${gid})`} />
+        <ellipse cx="35" cy="88" rx="5" ry="8" fill={orange} transform="rotate(-15 35 88)" />
+        <ellipse cx="44" cy="92" rx="5" ry="8" fill={orange} />
+        <ellipse cx="56" cy="92" rx="5" ry="8" fill={orange} />
+        <ellipse cx="65" cy="88" rx="5" ry="8" fill={orange} transform="rotate(15 65 88)" />
+        <circle cx="50" cy="46" r="10" fill={white ? 'rgba(255,255,255,0.3)' : '#fff'} />
+      </svg>
+      <div style={{ fontFamily:"'Outfit',sans-serif", fontWeight:600, fontSize:size*0.55, lineHeight:1 }}>
+        <span style={{ color:orange }}>Octo</span><span style={{ color:blue }}>Pub</span>
+      </div>
+    </div>
+  );
+}
+
+// Navbar
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', h);
+    return () => window.removeEventListener('scroll', h);
+  }, []);
+  return (
+    <nav style={{ position:'fixed', top:0, left:0, right:0, zIndex:1000, background:'#fff',
+      borderBottom:`1px solid ${scrolled ? C.border : 'transparent'}`,
+      boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.07)' : 'none',
+      transition:'all 0.3s', padding:'0 40px' }}>
+      <div style={{ maxWidth:1240, margin:'0 auto', display:'flex', alignItems:'center', height:72, gap:32 }}>
+        <a href="index.html" style={{ textDecoration:'none', flexShrink:0 }}><OctoPubLogo size={32} /></a>
+        <div style={{ flex:1, display:'flex', gap:8 }}>
+          <a href="index.html" className="nav-link" style={{ fontFamily:'Inter', fontSize:14, display:'inline-flex', alignItems:'center', gap:6 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Retour au site
+          </a>
+        </div>
+        <span style={{ fontFamily:'Outfit', fontWeight:500, fontSize:15, color:C.text }}>Notre Équipe</span>
+      </div>
+    </nav>
+  );
+}
+
+// Hero
+function Hero() {
+  return (
+    <section style={{ background:C.bgSoft, paddingTop:72, position:'relative', overflow:'hidden' }}>
+      <div style={{ position:'absolute', inset:0, background:'repeating-linear-gradient(135deg, transparent 0px, transparent 40px, rgba(254,94,23,0.025) 40px, rgba(254,94,23,0.025) 41px)' }} />
+      <div style={{ maxWidth:1240, margin:'0 auto', padding:'80px 40px 72px', position:'relative', textAlign:'center' }}>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'#fff', border:`1px solid ${C.border}`, borderRadius:100, padding:'6px 18px', marginBottom:28 }}>
+          <div style={{ width:7, height:7, borderRadius:'50%', background:C.orange }} />
+          <span style={{ fontFamily:'Inter', fontSize:13, fontWeight:400, color:C.textSec }}>OctoPub · Meknès, Maroc</span>
+        </div>
+        <h1 style={{ fontFamily:'Outfit', fontWeight:600, fontSize:'clamp(40px,5vw,64px)', color:C.text, letterSpacing:'-0.02em', lineHeight:1.1, marginBottom:16 }}>
+          Les personnes derrière<br /><span style={{ color:C.orange }}>votre image</span>
+        </h1>
+        <p style={{ fontFamily:'Outfit', fontWeight:300, fontSize:18, color:C.textSec, maxWidth:540, margin:'0 auto 20px', lineHeight:1.7 }}>
+          Une équipe passionnée, créative et rigoureuse — au service de votre communication visuelle depuis plus de 8 ans.
+        </p>
+        <p style={{ fontFamily:'Outfit', fontWeight:400, fontSize:16, color:C.orange, fontStyle:'italic' }}>
+          "Votre Image, Notre Mission"
+        </p>
+      </div>
+      {/* Showroom banner */}
+      <div style={{ maxWidth:1240, margin:'0 auto', padding:'0 40px 0' }}>
+        <div style={{ borderRadius:'16px 16px 0 0', overflow:'hidden', height:320, position:'relative' }}>
+          <img src="uploads/Design sans titre.png" alt="OctoPub Showroom & Atelier" style={{ width:'100%', height:'100%', objectFit:'cover', filter:'brightness(1.12) contrast(1.18) saturate(1.2)' }} />
+          <div style={{ position:'absolute', inset:0, background:'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }} />
+          <div style={{ position:'absolute', bottom:32, left:48, display:'flex', gap:24, alignItems:'flex-end' }}>
+            <div>
+              <div style={{ fontFamily:'Outfit', fontWeight:600, fontSize:22, color:'#fff' }}>Showroom & Atelier OctoPub</div>
+              <div style={{ fontFamily:'Inter', fontWeight:300, fontSize:14, color:'rgba(255,255,255,0.75)', marginTop:4 }}>Anassi · Meknès, Maroc · Lun–Sam 9h30–19h00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Team members
+const members = [
+  {
+    initials:'DG', name:'Directeur Général', role:'Fondateur & Vision stratégique',
+    color:C.orange, colorLight:'#FFF0EA',
+    desc:'À la tête d\'OctoPub depuis sa création, il porte la vision d\'une agence d\'impression premium au service des entreprises de Meknès.',
+    skills:['Leadership','Stratégie','Relations clients'],
+  },
+  {
+    initials:'DC', name:'Directeur Créatif', role:'Design & Conception graphique',
+    color:C.blue, colorLight:C.blueLight,
+    desc:'Responsable de tous les visuels et maquettes. Il transforme vos idées en designs impactants, prêts à l\'impression.',
+    skills:['Illustrator','Photoshop','Mise en page'],
+  },
+  {
+    initials:'RT', name:'Responsable Technique', role:'Production & Machines',
+    color:C.orange, colorLight:'#FFF0EA',
+    desc:'Maître de nos équipements d\'impression grand format. Il garantit la qualité de chaque tirage, couleur après couleur.',
+    skills:['Grand Format','Offset','Covering'],
+  },
+  {
+    initials:'CC', name:'Chargé Commercial', role:'Devis & Suivi clients',
+    color:C.blue, colorLight:C.blueLight,
+    desc:'Votre premier interlocuteur chez OctoPub. Il établit vos devis, suit vos commandes et s\'assure de votre satisfaction.',
+    skills:['Devis','CRM','Fidélisation'],
+  },
+  {
+    initials:'SM', name:'Spécialiste Digital', role:'Publicité Meta & Réseaux sociaux',
+    color:C.orange, colorLight:'#FFF0EA',
+    desc:'Expert en campagnes Meta Ads et community management. Il amplifie votre visibilité en ligne à Meknès et au-delà.',
+    skills:['Meta Ads','Facebook','Instagram'],
+  },
+  {
+    initials:'RL', name:'Responsable Livraison', role:'Pose & Installation',
+    color:C.blue, colorLight:C.blueLight,
+    desc:'Il supervise la pose de vos enseignes, bâches et covering. Précis, rapide et disponible dans toute la région.',
+    skills:['Pose','Installation','Logistique'],
+  },
+];
+
+function Team() {
+  return (
+    <section style={{ background:'#fff', padding:'80px 40px' }}>
+      <div style={{ maxWidth:1240, margin:'0 auto' }}>
+        <div className="reveal" style={{ textAlign:'center', marginBottom:60 }}>
+          <span style={{ fontFamily:'Inter', fontSize:12, fontWeight:500, color:C.orange, textTransform:'uppercase', letterSpacing:'0.12em' }}>L'équipe</span>
+          <h2 style={{ fontFamily:'Outfit', fontWeight:600, fontSize:'clamp(28px,3.5vw,44px)', color:C.text, marginTop:12, letterSpacing:'-0.02em' }}>
+            Des experts à votre service
+          </h2>
+        </div>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:28 }}>
+          {members.map((m,i) => (
+            <div key={i} className="member-card reveal" style={{ transitionDelay:`${i*0.08}s`, background:'#fff', border:`1px solid ${C.border}`, borderRadius:16, overflow:'hidden', boxShadow:'0 2px 16px rgba(0,0,0,0.05)' }}>
+              {/* Avatar area */}
+              <div style={{ height:200, background:m.colorLight, display:'flex', alignItems:'center', justifyContent:'center', position:'relative', overflow:'hidden' }}>
+                <div style={{ width:96, height:96, borderRadius:'50%', background:m.color, display:'flex', alignItems:'center', justifyContent:'center', boxShadow:`0 8px 24px ${m.color}40` }}>
+                  <span style={{ fontFamily:'Outfit', fontWeight:600, fontSize:34, color:'#fff' }}>{m.initials}</span>
+                </div>
+                {/* Decorative circles */}
+                <div style={{ position:'absolute', top:-20, right:-20, width:100, height:100, borderRadius:'50%', border:`1px solid ${m.color}22` }} />
+                <div style={{ position:'absolute', bottom:-30, left:-30, width:120, height:120, borderRadius:'50%', border:`1px solid ${m.color}15` }} />
+              </div>
+              {/* Content */}
+              <div style={{ padding:'24px 24px 28px' }}>
+                <div style={{ marginBottom:4 }}>
+                  <div style={{ fontFamily:'Outfit', fontWeight:500, fontSize:18, color:C.text }}>{m.name}</div>
+                  <div style={{ fontFamily:'Inter', fontWeight:400, fontSize:13, color:m.color, marginTop:3 }}>{m.role}</div>
+                </div>
+                <p style={{ fontFamily:'Inter', fontWeight:300, fontSize:14, color:C.textSec, lineHeight:1.7, marginTop:12, marginBottom:16 }}>{m.desc}</p>
+                <div style={{ display:'flex', gap:7, flexWrap:'wrap' }}>
+                  {m.skills.map(s => (
+                    <span key={s} style={{ background:m.colorLight, color:m.color, borderRadius:100, padding:'4px 12px', fontFamily:'Inter', fontSize:12, fontWeight:400 }}>{s}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Values
+function Values() {
+  const vals = [
+    { title:'Qualité sans compromis', desc:'Chaque projet est traité avec la même exigence, qu\'il s\'agisse d\'un flyer ou d\'une bâche de 10 mètres.', icon:'◈' },
+    { title:'Réactivité & délais', desc:'Nous nous engageons sur des délais réalistes et les tenons. Votre urgence est notre priorité.', icon:'◎' },
+    { title:'Conseil personnalisé', desc:'Nous ne vendons pas des produits — nous concevons des solutions adaptées à votre budget et vos objectifs.', icon:'◉' },
+    { title:'Ancrage local', desc:'Entreprise meknassie, nous connaissons le tissu économique local et accompagnons nos clients dans la durée.', icon:'◐' },
+  ];
+  return (
+    <section style={{ background:C.bgSoft, padding:'80px 40px' }}>
+      <div style={{ maxWidth:1240, margin:'0 auto' }}>
+        <div className="reveal" style={{ textAlign:'center', marginBottom:56 }}>
+          <span style={{ fontFamily:'Inter', fontSize:12, fontWeight:500, color:C.orange, textTransform:'uppercase', letterSpacing:'0.12em' }}>Nos valeurs</span>
+          <h2 style={{ fontFamily:'Outfit', fontWeight:600, fontSize:'clamp(28px,3.5vw,44px)', color:C.text, marginTop:12, letterSpacing:'-0.02em' }}>
+            Ce qui nous guide<br /><span style={{ fontWeight:300 }}>chaque jour</span>
+          </h2>
+        </div>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
+          {vals.map((v,i) => (
+            <div key={i} className="value-card reveal" style={{ transitionDelay:`${i*0.09}s`, background:'#fff', border:`1px solid ${C.border}`, borderRadius:14, padding:'32px 24px' }}>
+              <div style={{ fontFamily:'monospace', fontSize:28, color:C.orange, marginBottom:16, lineHeight:1 }}>{v.icon}</div>
+              <h3 style={{ fontFamily:'Outfit', fontWeight:500, fontSize:17, color:C.text, marginBottom:10 }}>{v.title}</h3>
+              <p style={{ fontFamily:'Inter', fontWeight:300, fontSize:14, color:C.textSec, lineHeight:1.7 }}>{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Clients logos
+function Clients() {
+  const logos = [
+    { src:'uploads/vALENCIA logo jus.png', name:'Valencia' },
+    { src:'uploads/Maroc telecom.jpg',     name:'Maroc Telecom' },
+    { src:'uploads/Dahab caffe.png',       name:'Dahab Café' },
+    { src:'uploads/SIAM.png',              name:'SIAM' },
+  ];
+  return (
+    <section style={{ background:'#fff', padding:'72px 40px' }}>
+      <div style={{ maxWidth:1240, margin:'0 auto' }}>
+        <div className="reveal" style={{ textAlign:'center', marginBottom:48 }}>
+          <span style={{ fontFamily:'Inter', fontSize:12, fontWeight:500, color:C.orange, textTransform:'uppercase', letterSpacing:'0.12em' }}>Ils nous font confiance</span>
+          <h2 style={{ fontFamily:'Outfit', fontWeight:400, fontSize:'clamp(24px,3vw,36px)', color:C.text, marginTop:12, letterSpacing:'-0.02em' }}>
+            Parmi nos <span style={{ fontWeight:600 }}>2500+ clients</span>
+          </h2>
+        </div>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:24 }}>
+          {logos.map((l,i) => (
+            <div key={i} className="reveal" style={{ transitionDelay:`${i*0.08}s`, background:C.bgSoft, border:`1px solid ${C.border}`, borderRadius:14, padding:'32px', display:'flex', alignItems:'center', justifyContent:'center', height:120 }}>
+              <img src={l.src} alt={l.name} style={{ maxWidth:'100%', maxHeight:64, objectFit:'contain', filter:'contrast(1.1) saturate(1.1)' }} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// CTA
+function CTA() {
+  return (
+    <section style={{ background:C.orange, padding:'72px 40px' }}>
+      <div style={{ maxWidth:1240, margin:'0 auto', textAlign:'center' }}>
+        <h2 style={{ fontFamily:'Outfit', fontWeight:600, fontSize:'clamp(28px,3.5vw,44px)', color:'#fff', letterSpacing:'-0.02em', marginBottom:12 }}>
+          Prêt à travailler avec nous ?
+        </h2>
+        <p style={{ fontFamily:'Inter', fontWeight:300, fontSize:16, color:'rgba(255,255,255,0.85)', marginBottom:36 }}>
+          Contactez notre équipe dès aujourd'hui — devis gratuit sous 2 heures.
+        </p>
+        <a href="index.html#contact" style={{ display:'inline-block', background:'#fff', color:C.orange, border:'none', borderRadius:8, padding:'16px 40px', fontFamily:'Inter', fontWeight:500, fontSize:15, textDecoration:'none', transition:'transform 0.2s' }}
+          onMouseEnter={e=>e.currentTarget.style.transform='scale(1.04)'}
+          onMouseLeave={e=>e.currentTarget.style.transform='scale(1)'}>
+          Demander un devis gratuit
+        </a>
+      </div>
+    </section>
+  );
+}
+
+// Footer (minimal)
+function Footer() {
+  return (
+    <footer style={{ background:C.dark, padding:'40px' }}>
+      <div style={{ maxWidth:1240, margin:'0 auto', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:16 }}>
+        <OctoPubLogo white size={28} />
+        <span style={{ fontFamily:'Inter', fontWeight:300, fontSize:13, color:'#666' }}>© 2025 OctoPub — Meknès, Maroc</span>
+        <a href="index.html" className="footer-link" style={{ fontFamily:'Inter', fontSize:14 }}>← Retour au site</a>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Team />
+      <Values />
+      <Clients />
+      <CTA />
+      <Footer />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin:'0px 0px -30px 0px' });
+  const observe = () => document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  setTimeout(observe, 300);
+  setTimeout(observe, 800);
+  setTimeout(observe, 1600);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+Place your logo file here as /public/logo.png
+The logo should be the OctoPub brand image (carte_de_visite_octopub.png)
