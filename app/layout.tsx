@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "OctoPub — Impression Numérique Meknès",
     description: "Votre partenaire impression à Meknès",
-    url: "https://octopub.ma",
+    url: "https://octopub.co",
     siteName: "OctoPub",
     locale: "fr_MA",
     type: "website",
@@ -49,8 +49,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "OctoPub",
   description: "Imprimerie numérique et publicité à Meknès",
-  "@id": "https://octopub.ma",
-  url: "https://octopub.ma",
+  "@id": "https://octopub.co",
+  url: "https://octopub.co",
   telephone: "+212663653443",
   address: {
     "@type": "PostalAddress",
@@ -65,7 +65,7 @@ const localBusinessSchema = {
   },
   openingHours: "Mo-Sa 08:30-19:00",
   priceRange: "$$",
-  image: "https://octopub.ma/logo.png",
+  image: "https://octopub.co/logo.png",
   sameAs: [
     "https://www.facebook.com/octopub",
     "https://www.instagram.com/octopub",

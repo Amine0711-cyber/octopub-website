@@ -7,12 +7,8 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
-      {
-        protocol: "https",
-        hostname: "**.supabase.co",
-      },
     ],
-    minimumCacheTTL: 60 * 60 * 24 * 30,
+    unoptimized: true,
   },
   /* Compress responses */
   compress: true,
