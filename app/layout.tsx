@@ -21,33 +21,65 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "OctoPub — Votre Image, Notre Mission · Meknès",
+    default: "OctoPub — Impression Numérique & Publicité à Meknès",
     template: "%s | OctoPub Meknès",
   },
   description:
-    "OctoPub, votre imprimerie et agence publicitaire à Meknès. Bâches grand format, enseignes LED, covering véhicules, impression offset, supports événementiels.",
+    "Imprimerie professionnelle à Meknès. Bâches, enseignes, covering, impression offset. Devis gratuit en 2h. +212 663 65 34 43",
   keywords: [
-    "imprimerie Meknès",
-    "publicité Meknès",
-    "bâches grand format",
-    "enseignes lumineuses",
-    "covering véhicules",
-    "flyers brochures",
-    "OctoPub",
+    "imprimerie meknès",
+    "impression numérique maroc",
+    "bâche publicitaire meknès",
+    "enseigne lumineuse meknès",
+    "covering véhicule meknès",
+    "octopub",
   ],
   openGraph: {
-    title: "OctoPub — L'impression qui marque",
-    description:
-      "Imprimerie & publicité professionnelle à Meknès, Maroc. Devis gratuit sous 24h.",
+    title: "OctoPub — Impression Numérique Meknès",
+    description: "Votre partenaire impression à Meknès",
+    url: "https://octopub.ma",
+    siteName: "OctoPub",
     locale: "fr_MA",
     type: "website",
   },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "OctoPub",
+  description: "Imprimerie numérique et publicité à Meknès",
+  "@id": "https://octopub.ma",
+  url: "https://octopub.ma",
+  telephone: "+212663653443",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Anassi",
+    addressLocality: "Meknès",
+    addressCountry: "MA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 33.8935,
+    longitude: -5.5473,
+  },
+  openingHours: "Mo-Sa 08:30-19:00",
+  priceRange: "$$",
+  image: "https://octopub.ma/logo.png",
+  sameAs: [
+    "https://www.facebook.com/octopub",
+    "https://www.instagram.com/octopub",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${outfit.variable} ${inter.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />

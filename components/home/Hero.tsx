@@ -5,9 +5,9 @@ import Image from "next/image";
 import DevisModal from "@/components/shared/DevisModal";
 
 const heroImgs = [
-  { src: "/uploads/Impression machines.webp", filter: "brightness(0.45) saturate(1.1)" },
-  { src: "/uploads/Impression sur baches.jpg", filter: "brightness(0.55) saturate(1.3) hue-rotate(-15deg)" },
-  { src: "/uploads/Covering Véhicule.jpg", filter: "brightness(0.45) saturate(1.1)" },
+  { src: "/uploads/impression-machines.webp", filter: "brightness(0.45) saturate(1.1)", alt: "Machines d'impression grand format OctoPub Meknès" },
+  { src: "/uploads/impression-sur-baches.jpg", filter: "brightness(0.55) saturate(1.3) hue-rotate(-15deg)", alt: "Impression bâche grand format OctoPub Meknès" },
+  { src: "/uploads/covering-vehicule.jpg", filter: "brightness(0.45) saturate(1.1)", alt: "Covering véhicule OctoPub Meknès" },
 ];
 
 const stats = [
@@ -18,10 +18,10 @@ const stats = [
 ];
 
 const clientLogos = [
-  { src: "/uploads/vALENCIA logo jus.png",  name: "Valencia" },
-  { src: "/uploads/Maroc telecom.jpg",       name: "Maroc Telecom" },
-  { src: "/uploads/Dahab caffe.png",         name: "Dahab Café" },
-  { src: "/uploads/SIAM.png",                name: "SIAM" },
+  { src: "/uploads/valencia-logo-jus.png", name: "Valencia" },
+  { src: "/uploads/maroc-telecom.jpg",     name: "Maroc Telecom" },
+  { src: "/uploads/dahab-caffe.png",       name: "Dahab Café" },
+  { src: "/uploads/siam.png",              name: "SIAM" },
 ];
 
 export default function Hero() {
@@ -63,8 +63,9 @@ export default function Hero() {
             <Image
               key={`${i}-${animKey}`}
               src={img.src}
-              alt=""
+              alt={img.alt}
               fill
+              sizes="100vw"
               className={i === imgIdx ? "hero-img-active" : ""}
               style={{ objectFit: "cover", filter: img.filter }}
               priority={i === 0}
@@ -181,7 +182,7 @@ export default function Hero() {
                       flexShrink: 0, overflow: "hidden", position: "relative",
                     }}
                   >
-                    <Image src={logo.src} alt={logo.name} fill style={{ objectFit: "contain", filter: "contrast(1.1) saturate(1.1)", padding: 4 }} />
+                    <Image src={logo.src} alt={logo.name} fill sizes="52px" style={{ objectFit: "contain", filter: "contrast(1.1) saturate(1.1)", padding: 4 }} />
                   </div>
                 ))}
               </div>

@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(slug);
   if (!service) return {};
   return {
-    title: service.title,
-    description: service.description,
+    title: `${service.title} Meknès | OctoPub`,
+    description: `${service.shortDesc} à Meknès. ${service.description.slice(0, 80)}… Devis gratuit en 2h. +212 663 65 34 43`,
   };
 }
 

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Réalisations",
+  title: "Réalisations — Portfolio Imprimerie Meknès",
   description:
-    "Découvrez les réalisations d'OctoPub : enseignes, bâches, covering, impression et supports événementiels à Meknès.",
+    "Découvrez les réalisations d'OctoPub à Meknès : enseignes lumineuses, bâches grand format, covering véhicules, impression offset et supports événementiels.",
 };
 
 const categories = ["Tous", "Grand Format", "Enseignes", "Covering", "Événementiel", "Impression"];
@@ -73,7 +73,7 @@ export default function RealisationsPage() {
               >
                 <Image
                   src={project.img}
-                  alt={project.title}
+                  alt={`Réalisation ${project.category} — ${project.title} — OctoPub Meknès`}
                   fill
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
                 />

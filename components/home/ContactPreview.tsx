@@ -101,7 +101,7 @@ export default function ContactPreview() {
 
             {/* Showroom photo */}
             <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid #E0E0E0", position: "relative", height: 180 }}>
-              <Image src="/uploads/Design sans titre.png" alt="OctoPub Showroom" fill loading="lazy" style={{ objectFit: "cover" }} />
+              <Image src="/uploads/design-sans-titre.png" alt="OctoPub Showroom & Atelier — Meknès" fill sizes="(max-width: 1024px) 100vw, 40vw" loading="lazy" style={{ objectFit: "cover" }} />
             </div>
           </div>
 

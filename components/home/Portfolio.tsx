@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useReveal } from "@/lib/useReveal";
 
 const items = [
-  { label: "Bâches Grand Format",    sub: "Impression grand format",  img: "/uploads/Impression sur baches.jpg",       filter: "hue-rotate(-30deg) saturate(1.5)", span: 2 },
-  { label: "Enseignes Lumineuses",   sub: "LED & Signalétique",       img: "/uploads/Enseignes & Signalétique.jfif",   filter: "none", span: 1 },
-  { label: "Covering Véhicule",      sub: "Habillage complet",        img: "/uploads/Covering Véhicule.jpg",           filter: "none", span: 1 },
-  { label: "Impressions",            sub: "Offset & Digital",         img: "/uploads/Impression Offset & Digital.png", filter: "none", span: 1 },
-  { label: "Supports Événementiels", sub: "Roll-up & Stands",         img: "/uploads/Roll-up.jpeg",                    filter: "none", span: 1 },
+  { label: "Bâches Grand Format",    sub: "Impression grand format",  img: "/uploads/impression-sur-baches.jpg",      filter: "hue-rotate(-30deg) saturate(1.5)", span: 2 },
+  { label: "Enseignes Lumineuses",   sub: "LED & Signalétique",       img: "/uploads/enseignes-signaletique.jfif",    filter: "none", span: 1 },
+  { label: "Covering Véhicule",      sub: "Habillage complet",        img: "/uploads/covering-vehicule.jpg",          filter: "none", span: 1 },
+  { label: "Impressions",            sub: "Offset & Digital",         img: "/uploads/impression-offset-digital.png",  filter: "none", span: 1 },
+  { label: "Supports Événementiels", sub: "Roll-up & Stands",         img: "/uploads/roll-up.jpeg",                   filter: "none", span: 1 },
 ];
 
 export default function Portfolio() {
@@ -49,8 +49,9 @@ export default function Portfolio() {
             >
               <Image
                 src={item.img}
-                alt={item.label}
+                alt={`${item.label} — OctoPub Meknès`}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw"
                 loading="lazy"
                 style={{ objectFit: "cover", filter: item.filter, transition: "transform 0.5s ease" }}
               />

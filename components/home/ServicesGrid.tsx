@@ -10,7 +10,7 @@ const serviceData = [
     title: "Bâches & Grand Format",
     desc: "Impressions grand format haute définition pour façades, événements et affichages extérieurs durables.",
     tags: ["Bâches PVC", "Banderoles", "Kakémonos"],
-    img: "/uploads/Impression sur baches.jpg",
+    img: "/uploads/impression-sur-baches.jpg",
     imgFilter: "hue-rotate(-30deg) saturate(1.6) brightness(0.95)",
   },
   {
@@ -18,7 +18,7 @@ const serviceData = [
     title: "Enseignes & Signalétique",
     desc: "Enseignes lumineuses, lettres découpées, totems et signalétique intérieure professionnelle.",
     tags: ["LED", "Plexi", "Totems"],
-    img: "/uploads/Enseignes & Signalétique.jfif",
+    img: "/uploads/enseignes-signaletique.jfif",
     imgFilter: "none",
   },
   {
@@ -26,7 +26,7 @@ const serviceData = [
     title: "Impression Offset & Digital",
     desc: "Flyers, catalogues, cartes de visite et brochures en impression offset ou numérique haute qualité.",
     tags: ["Offset", "Digital", "Façonnage"],
-    img: "/uploads/Impression Offset & Digital.png",
+    img: "/uploads/impression-offset-digital.png",
     imgFilter: "none",
   },
   {
@@ -34,7 +34,7 @@ const serviceData = [
     title: "Covering & Stickers",
     desc: "Habillage complet de véhicules, vitrines et surfaces pour une visibilité maximale.",
     tags: ["Véhicules", "Vitrines", "Adhésifs"],
-    img: "/uploads/Covering & Stickers.jfif",
+    img: "/uploads/covering-stickers.jfif",
     imgFilter: "none",
   },
   {
@@ -42,7 +42,7 @@ const serviceData = [
     title: "Supports Événementiels",
     desc: "Roll-up, stands, backdrops et habillages pour salons, conférences et événements marquants.",
     tags: ["Stands", "Roll-up", "Backdrop"],
-    img: "/uploads/Roll-up.jpeg",
+    img: "/uploads/roll-up.jpeg",
     imgFilter: "none",
   },
   {
@@ -50,7 +50,7 @@ const serviceData = [
     title: "Publicité Digitale",
     desc: "Campagnes Meta Ads ciblées pour amplifier votre visibilité en ligne à Meknès et au Maroc.",
     tags: ["Meta Ads", "Facebook", "Instagram"],
-    img: "/uploads/Campagnes Meta Ads.jfif",
+    img: "/uploads/campagnes-meta-ads.jfif",
     imgFilter: "none",
   },
 ];
@@ -93,8 +93,9 @@ export default function ServicesGrid() {
               <div className="card-img" style={{ height: 180, overflow: "hidden", background: "#f0f0f0", position: "relative" }}>
                 <Image
                   src={c.img}
-                  alt={c.title}
+                  alt={`${c.title} — OctoPub Meknès`}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw"
                   loading="lazy"
                   style={{ objectFit: "cover", filter: c.imgFilter }}
                 />

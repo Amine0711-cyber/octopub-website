@@ -20,7 +20,17 @@
       "Bash(python3 -c \"import gzip,sys; data=gzip.decompress\\(open\\('webfetch-1776770829261-0vpzc3.bin','rb'\\).read\\(\\)\\); print\\(data[:50000].decode\\('utf-8','ignore'\\)\\)\")",
       "Bash(npx next *)",
       "PowerShell(Stop-Process *)",
-      "Bash(taskkill *)"
+      "Bash(taskkill *)",
+      "Bash(dir C:\\\\Users\\\\hp\\\\Desktop\\\\HTML\\\\octopub-website\\\\public\\\\uploads *)",
+      "Bash(mv \"Campagnes Meta Ads.jfif\" \"campagnes-meta-ads.jfif\")",
+      "Bash(mv \"carte de visite octopub.png\" \"carte-de-visite-octopub.png\")",
+      "Bash(mv \"Covering & Stickers.jfif\" \"covering-stickers.jfif\")",
+      "Bash(mv \"Dahab caffe.png\" \"dahab-caffe.png\")",
+      "Bash(mv \"Design sans titre.png\" \"design-sans-titre.png\")",
+      "Bash(mv \"Covering Véhicule.jpg\" \"covering-vehicule.jpg\")",
+      "Bash(mv \"Enseignes & Signalétique.jfif\" \"enseignes-signaletique.jfif\")",
+      "Bash(grep -r \"uploads/[A-Z]\" --include=\"*.tsx\" --include=\"*.ts\" -l)",
+      "Bash(grep -r \"uploads/.*[ &]\" --include=\"*.tsx\" --include=\"*.ts\" -l)"
     ]
   }
 }

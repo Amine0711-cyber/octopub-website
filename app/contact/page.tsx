@@ -3,17 +3,17 @@ import ContactForm from "@/components/shared/ContactForm";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact — Devis Gratuit Meknès",
   description:
-    "Contactez OctoPub pour un devis gratuit. Impression, enseignes, covering à Meknès. Réponse sous 24h.",
+    "Contactez OctoPub pour un devis gratuit en 2h. Imprimerie & publicité à Meknès : bâches, enseignes, covering. Réponse garantie. +212 663 65 34 43",
 };
 
 const contactInfo = [
   {
     icon: Phone,
     label: "Téléphone",
-    value: "+212 6XX XX XX XX",
-    href: "tel:+212600000000",
+    value: "+212 663 65 34 43",
+    href: "tel:+212663653443",
   },
   {
     icon: Mail,
@@ -107,7 +107,7 @@ export default function ContactPage() {
                   Pour une réponse rapide, contactez-nous directement sur WhatsApp.
                 </p>
                 <a
-                  href="https://wa.me/212600000000"
+                  href="https://wa.me/212663653443"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-green-600 text-white font-body font-medium tracking-[0.5px] text-xs px-5 py-3 rounded-md hover:bg-green-700 active:scale-95 transition-all duration-200"

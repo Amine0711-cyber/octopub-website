@@ -58,8 +58,8 @@ function Hero({ onDevis }: { onDevis: () => void }) {
   return (
     <section style={{ position: "relative", minHeight: "88vh", display: "flex", alignItems: "center", overflow: "hidden", background: "#111" }}>
       <Image
-        src="/uploads/Impression sur baches.jpg"
-        alt="Bâches grand format OctoPub"
+        src="/uploads/impression-sur-baches.jpg"
+        alt="Impression bâche grand format PVC — OctoPub Meknès"
         fill
         priority
         className="object-cover object-center"
@@ -67,7 +67,7 @@ function Hero({ onDevis }: { onDevis: () => void }) {
       />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(0,0,0,0.75) 0%, rgba(254,94,23,0.1) 100%)" }} />
 
-      <div style={{ position: "relative", zIndex: 2, maxWidth: 1240, margin: "0 auto", padding: "120px 40px 80px", width: "100%" }}>
+      <div className="baches-hero-inner" style={{ position: "relative", zIndex: 2, maxWidth: 1240, margin: "0 auto", padding: "120px 40px 80px", width: "100%" }}>
         {/* Breadcrumb */}
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
           <Link href="/" style={{ fontFamily: "Inter", fontSize: 13, color: "rgba(255,255,255,0.55)", textDecoration: "none" }}>Accueil</Link>
@@ -104,7 +104,7 @@ function Hero({ onDevis }: { onDevis: () => void }) {
         </div>
 
         {/* Floating stats */}
-        <div style={{ position: "absolute", right: 40, bottom: 60, display: "flex", flexDirection: "column", gap: 12 }}>
+        <div className="baches-hero-stats" style={{ position: "absolute", right: 40, bottom: 60, display: "flex", flexDirection: "column", gap: 12 }}>
           {[
             { v: "Sur mesure", l: "toutes dimensions" },
             { v: "24h", l: "délai express" },
@@ -136,8 +136,8 @@ function Description() {
     <><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></>,
   ];
   return (
-    <section id="description" style={{ background: "#fff", padding: "100px 40px" }}>
-      <div style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+    <section id="description" className="baches-description-section" style={{ background: "#fff", padding: "100px 40px" }}>
+      <div className="baches-description-grid" style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
         <Reveal dir="left">
           <span style={{ fontFamily: "Inter", fontSize: 12, fontWeight: 500, color: C.orange, textTransform: "uppercase", letterSpacing: "0.12em" }}>Le service</span>
           <h2 style={{ fontFamily: "Outfit", fontWeight: 600, fontSize: "clamp(28px,3.5vw,44px)", color: C.text, marginTop: 12, marginBottom: 20, lineHeight: 1.2, letterSpacing: "-0.02em" }}>
@@ -157,7 +157,7 @@ function Description() {
         </Reveal>
 
         <Reveal dir="right">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div className="baches-use-cases-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {useCases.map((u, i) => (
               <div key={i} style={{ background: C.bgSoft, border: `1px solid ${C.border}`, borderRadius: 14, padding: "24px 20px" }}>
                 <div style={{ width: 36, height: 36, borderRadius: 8, background: u.orange ? "#FFF0EA" : C.blueLight, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
@@ -193,7 +193,7 @@ function Specs() {
     { name: "Textile polyester", desc: "Surface douce et premium pour intérieur. Rendu photographique exceptionnel.", best: "Showrooms, hôtels, restaurants", orange: false },
   ];
   return (
-    <section style={{ background: C.bgSoft, padding: "100px 40px" }}>
+    <section className="baches-specs-section" style={{ background: C.bgSoft, padding: "100px 40px" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 64 }}>
@@ -205,7 +205,7 @@ function Specs() {
         </Reveal>
 
         {/* Quick specs grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 16, marginBottom: 48 }}>
+        <div className="baches-specs-quick" style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 16, marginBottom: 48 }}>
           {specs.map((s, i) => (
             <Reveal key={i} delay={i * 0.07}>
               <div style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 14, padding: "24px 16px", textAlign: "center", cursor: "default", transition: "border-color 0.22s, transform 0.22s" }}
@@ -224,7 +224,7 @@ function Specs() {
         <Reveal>
           <h3 style={{ fontFamily: "Outfit", fontWeight: 500, fontSize: 24, color: C.text, marginBottom: 24 }}>Matériaux disponibles</h3>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
+        <div className="baches-specs-materials" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
           {materials.map((m, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <div style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 14, padding: "28px 22px" }}>
@@ -249,14 +249,14 @@ function Specs() {
 // ─── 4. GALERIE ────────────────────────────────────────────
 function Galerie() {
   const items = [
-    { img: "/uploads/Impression sur baches.jpg", label: "Bâche façade grand format", col: 2, row: 2 },
-    { img: "/uploads/Impression machines.webp", label: "Atelier grand format", col: 1, row: 1 },
-    { img: "/uploads/Impression Offset & Digital.png", label: "Impression haute définition", col: 1, row: 1 },
-    { img: "/uploads/Covering & Stickers.jfif", label: "Habillage vitrine", col: 1, row: 1 },
-    { img: "/uploads/Roll-up.jpeg", label: "Kakémono & Roll-up", col: 1, row: 1 },
+    { img: "/uploads/impression-sur-baches.jpg", label: "Bâche façade grand format — OctoPub Meknès", col: 2, row: 2 },
+    { img: "/uploads/impression-machines.webp", label: "Atelier impression grand format OctoPub Meknès", col: 1, row: 1 },
+    { img: "/uploads/impression-offset-digital.png", label: "Impression haute définition offset & digital — OctoPub", col: 1, row: 1 },
+    { img: "/uploads/covering-stickers.jfif", label: "Covering & habillage vitrine — OctoPub Meknès", col: 1, row: 1 },
+    { img: "/uploads/roll-up.jpeg", label: "Kakémono & Roll-up événementiel — OctoPub Meknès", col: 1, row: 1 },
   ];
   return (
-    <section style={{ background: "#fff", padding: "100px 40px" }}>
+    <section className="baches-gallery-section" style={{ background: "#fff", padding: "100px 40px" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 64 }}>
@@ -266,13 +266,13 @@ function Galerie() {
             </h2>
           </div>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridTemplateRows: "280px 240px", gap: 16 }}>
+        <div className="baches-gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridTemplateRows: "280px 240px", gap: 16 }}>
           {items.map((item, i) => (
-            <Reveal key={i} delay={i * 0.07} style={{ gridColumn: `span ${item.col}`, gridRow: `span ${item.row}` }}>
+            <Reveal key={i} delay={i * 0.07} className="baches-gallery-item" style={{ gridColumn: `span ${item.col}`, gridRow: `span ${item.row}` }}>
               <div style={{ borderRadius: 14, overflow: "hidden", position: "relative", border: `1px solid ${C.border}`, height: "100%", cursor: "zoom-in", transition: "transform 0.28s ease" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "scale(1.02)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; }}>
-                <Image src={item.img} alt={item.label} fill className="object-cover" style={{ transition: "transform 0.45s ease" }} />
+                <Image src={item.img} alt={item.label} fill className="object-cover" style={{ transition: "transform 0.45s ease" }} sizes="(max-width: 768px) 100vw, 50vw" />
                 <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)", padding: "20px 20px 16px" }}>
                   <span style={{ fontFamily: "Inter", fontWeight: 400, fontSize: 13, color: "#fff" }}>{item.label}</span>
                 </div>
@@ -294,7 +294,7 @@ function Processus() {
     { n: "04", title: "Livraison ou pose", desc: "Récupération en atelier sous 24–48h, ou livraison + pose sur site par notre équipe à Meknès et environs." },
   ];
   return (
-    <section style={{ background: C.bgSoft, padding: "100px 40px" }}>
+    <section className="baches-processus-section" style={{ background: C.bgSoft, padding: "100px 40px" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 64 }}>
@@ -304,8 +304,8 @@ function Processus() {
             </h2>
           </div>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, position: "relative" }}>
-          <div style={{ position: "absolute", top: 44, left: "12.5%", right: "12.5%", height: 1, background: C.bgLight }} />
+        <div className="baches-processus-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, position: "relative" }}>
+          <div className="baches-processus-connector" style={{ position: "absolute", top: 44, left: "12.5%", right: "12.5%", height: 1, background: C.bgLight }} />
           {steps.map((s, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "0 12px", position: "relative", zIndex: 1 }}>
@@ -352,7 +352,7 @@ function Tarifs({ onDevis }: { onDevis: () => void }) {
     },
   ];
   return (
-    <section style={{ background: "#fff", padding: "100px 40px" }}>
+    <section className="baches-tarifs-section" style={{ background: "#fff", padding: "100px 40px" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 16 }}>
@@ -367,7 +367,7 @@ function Tarifs({ onDevis }: { onDevis: () => void }) {
             Les tarifs indiqués sont indicatifs. Demandez un devis précis gratuit pour votre projet.
           </p>
         </Reveal>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, alignItems: "start" }}>
+        <div className="baches-tarifs-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, alignItems: "start" }}>
           {plans.map((p, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <PriceCard plan={p} onDevis={onDevis} />
@@ -429,7 +429,7 @@ function FAQ() {
     { q: "Puis-je commander en petite quantité ?", a: "Absolument. Il n'y a pas de quantité minimale chez OctoPub. Nous imprimons à partir d'1 exemplaire. Les prix dégressifs s'appliquent à partir de 5 m² ou de commandes récurrentes." },
   ];
   return (
-    <section style={{ background: C.bgSoft, padding: "100px 40px" }}>
+    <section className="baches-faq-section" style={{ background: C.bgSoft, padding: "100px 40px" }}>
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -502,8 +502,8 @@ function CTAForm() {
   });
 
   return (
-    <section id="devis" style={{ background: "#fff", padding: "100px 40px" }}>
-      <div style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }}>
+    <section id="devis" className="baches-cta-section" style={{ background: "#fff", padding: "100px 40px" }}>
+      <div className="baches-cta-grid" style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }}>
         {/* Left */}
         <Reveal dir="left">
           <span style={{ fontFamily: "Inter", fontSize: 12, fontWeight: 500, color: C.orange, textTransform: "uppercase", letterSpacing: "0.12em" }}>Devis gratuit</span>
@@ -531,7 +531,7 @@ function CTAForm() {
             ))}
           </div>
           <div style={{ marginTop: 36, borderRadius: 14, overflow: "hidden", height: 180, border: `1px solid ${C.border}`, position: "relative" }}>
-            <Image src="/uploads/Impression machines.webp" alt="Machines impression grand format" fill className="object-cover" style={{ filter: "brightness(0.9) saturate(1.1)" }} />
+            <Image src="/uploads/impression-machines.webp" alt="Atelier impression grand format OctoPub Meknès" fill className="object-cover" style={{ filter: "brightness(0.9) saturate(1.1)" }} />
           </div>
         </Reveal>
 
@@ -555,7 +555,7 @@ function CTAForm() {
             ) : (
               <form onSubmit={submit}>
                 <h3 style={{ fontFamily: "Outfit", fontWeight: 500, fontSize: 20, color: C.text, marginBottom: 24 }}>Demande de devis — Bâches</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
+                <div className="baches-cta-inputs" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
                   <div>
                     <label style={{ fontFamily: "Inter", fontSize: 12, fontWeight: 500, color: C.textSec, display: "block", marginBottom: 6 }}>Nom *</label>
                     <input style={iStyle("nom")} placeholder="Votre nom" value={form.nom}
@@ -694,7 +694,7 @@ function DevisModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 2000, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.45)", backdropFilter: "blur(5px)" }} onClick={onClose}>
-      <div style={{ background: "#fff", borderRadius: 20, padding: 40, width: "100%", maxWidth: 480, position: "relative", boxShadow: "0 28px 80px rgba(0,0,0,0.2)" }} onClick={e => e.stopPropagation()}>
+      <div className="baches-modal-inner" style={{ background: "#fff", borderRadius: 20, padding: 40, width: "100%", maxWidth: 480, position: "relative", boxShadow: "0 28px 80px rgba(0,0,0,0.2)" }} onClick={e => e.stopPropagation()}>
         <button onClick={onClose} style={{ position: "absolute", top: 16, right: 16, width: 32, height: 32, borderRadius: "50%", border: `1px solid ${C.border}`, background: "#fff", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: C.textMuted, fontSize: 16 }}>✕</button>
         {!done ? (
           <>

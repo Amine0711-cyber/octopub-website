@@ -12,9 +12,10 @@ export default function CtaBand() {
       <section style={{ position: "relative", overflow: "hidden" }}>
         {/* Background image dimmed */}
         <Image
-          src="/uploads/Impression machines.webp"
-          alt=""
+          src="/uploads/impression-machines.webp"
+          alt="Atelier impression OctoPub Meknès"
           fill
+          sizes="100vw"
           loading="lazy"
           style={{ objectFit: "cover", filter: "brightness(0.3) saturate(0.8)" }}
         />

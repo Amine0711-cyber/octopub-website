@@ -28,7 +28,7 @@ export default function Process() {
 
         {/* Image strip banner */}
         <div className={rv("reveal")} style={{ marginBottom: 56, borderRadius: 16, overflow: "hidden", height: 220, position: "relative" }}>
-          <Image src="/uploads/Impression machines.webp" alt="Atelier impression OctoPub" fill loading="lazy" style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
+          <Image src="/uploads/impression-machines.webp" alt="Atelier impression OctoPub Meknès" fill sizes="100vw" loading="lazy" style={{ objectFit: "cover", filter: "brightness(0.7)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(254,94,23,0.55) 0%, transparent 60%)" }} />
           <div style={{ position: "absolute", top: "50%", left: 48, transform: "translateY(-50%)" }}>
             <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 600, fontSize: 28, color: "#fff" }}>Votre Image, Notre Mission</div>

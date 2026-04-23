@@ -32,9 +32,10 @@ export default function About() {
         <div className={rv("reveal-left")} style={{ position: "relative" }}>
           <div style={{ borderRadius: 20, overflow: "hidden", aspectRatio: "4/3", position: "relative", boxShadow: "0 20px 60px rgba(0,0,0,0.15)" }}>
             <Image
-              src="/uploads/Design sans titre.png"
-              alt="OctoPub Showroom & Atelier — Meknès"
+              src="/uploads/design-sans-titre.png"
+              alt="OctoPub — Imprimerie Meknès, Showroom & Atelier Anassi"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               loading="lazy"
               style={{ objectFit: "cover", filter: "brightness(1.12) contrast(1.18) saturate(1.25)" }}
             />
