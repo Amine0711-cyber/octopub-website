@@ -18,8 +18,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact@octopub.co",
-    href: "mailto:contact@octopub.co",
+    value: "contact@octopub.ma",
+    href: "mailto:contact@octopub.ma",
   },
   {
     icon: MapPin,

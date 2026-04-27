@@ -52,7 +52,7 @@ const cols = [
     links: [
       { label: "Anassi - Meknès, Maroc", href: "#" },
       { label: "+212 663653443",          href: "tel:+212663653443" },
-      { label: "contact@octopub.co",      href: "mailto:contact@octopub.co" },
+      { label: "contact@octopub.ma",      href: "mailto:contact@octopub.ma" },
       { label: "Lun–Sam 9h30–19h00",     href: "#" },
     ],
   },
