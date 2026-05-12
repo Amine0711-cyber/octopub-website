@@ -42,6 +42,11 @@ export const metadata: Metadata = {
     locale: "fr_MA",
     type: "website",
   },
+  icons: {
+    icon: "/FavIcone OctoPub.png",
+    shortcut: "/FavIcone OctoPub.png",
+    apple: "/FavIcone OctoPub.png",
+  },
 };
 
 const localBusinessSchema = {

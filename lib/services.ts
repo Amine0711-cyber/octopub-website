@@ -4,7 +4,7 @@ export interface Service {
   shortDesc: string;
   description: string;
   features: string[];
-  icon: string;
+  coverImage: string;
   image: string;
 }
 
@@ -23,8 +23,8 @@ export const services: Service[] = [
       "Finitions renforcées (œillets, ourlets)",
       "Livraison sous 48h",
     ],
-    icon: "🖼️",
-    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600",
+    coverImage: "/uploads/impression-sur-baches.jpg",
+    image: "/uploads/impression-sur-baches.jpg",
   },
   {
     slug: "enseignes-signaletique",
@@ -40,25 +40,29 @@ export const services: Service[] = [
       "Signalétique intérieure et extérieure",
       "Installation sur site à Meknès",
     ],
-    icon: "💡",
-    image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600",
+    coverImage: "/uploads/enseignes-signaletique.jfif",
+    image: "/uploads/enseignes-signaletique.jfif",
   },
   {
     slug: "impression-offset-digital",
     title: "Impression Offset & Digital",
     shortDesc: "Cartes de visite, flyers, brochures, catalogues, affiches.",
     description:
-      "De la carte de visite au catalogue produit, nous maîtrisons l'impression offset pour les grands volumes et le numérique pour les petites séries. Qualité irréprochable, délais rapides.",
+      "OctoPub est spécialiste de l'impression offset et numérique pour supports professionnels : cartes de visite, flyers, brochures, catalogues, affiches et supports commerciaux. Nous adaptons le procédé, le papier et les finitions selon vos objectifs, vos quantités et vos délais.",
     features: [
-      "Cartes de visite vernis sélectif / pelliculage",
+      "Cartes de visite avec finition mate, brillante, vernis sélectif ou pelliculage",
       "Flyers A6, A5, A4, A3",
       "Brochures et catalogues reliés",
       "Affiches tous formats",
-      "Papiers spéciaux (krafts, texturés)",
-      "Offset 4 couleurs haute fidélité",
+      "Dépliants commerciaux",
+      "Menus restaurants",
+      "Chemises à rabat",
+      "Papier spécial : kraft, texturé, couché, bristol",
+      "Impression petite série en digital",
+      "Impression grand volume en offset",
     ],
-    icon: "🖨️",
-    image: "https://images.unsplash.com/photo-1562813733-b31f71025d54?w=600",
+    coverImage: "/uploads/impression-offset-digital.png",
+    image: "/uploads/impression-offset-digital.png",
   },
   {
     slug: "covering-stickers",
@@ -74,8 +78,8 @@ export const services: Service[] = [
       "Films 3M et Avery certifiés",
       "Pose professionnelle garantie",
     ],
-    icon: "🚗",
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600",
+    coverImage: "/uploads/covering-stickers.jfif",
+    image: "/uploads/covering-stickers.jfif",
   },
   {
     slug: "supports-evenementiels",
@@ -91,8 +95,8 @@ export const services: Service[] = [
       "Structures pop-up",
       "Kit complet avec sac de transport",
     ],
-    icon: "🎪",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600",
+    coverImage: "/uploads/roll-up.jpeg",
+    image: "/uploads/roll-up.jpeg",
   },
   {
     slug: "publicite-digitale",
@@ -108,8 +112,8 @@ export const services: Service[] = [
       "Reporting mensuel de performance",
       "Gestion de budget optimisée",
     ],
-    icon: "📱",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600",
+    coverImage: "/uploads/campagnes-meta-ads.jfif",
+    image: "/uploads/campagnes-meta-ads.jfif",
   },
 ];
 

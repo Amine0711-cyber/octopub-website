@@ -124,16 +124,10 @@ function Hero({ onDevis }: { onDevis: () => void }) {
 // ─── 2. DESCRIPTION ────────────────────────────────────────
 function Description() {
   const useCases = [
-    { title: "Façades commerciales", desc: "Habillage de devantures, stores et vitrines avec des bâches grand format personnalisées aux couleurs de votre marque.", orange: true },
-    { title: "Événements & salons", desc: "Backdrops, fonds de scène, banderoles et habillages pour stands de salon, conférences et événements d'entreprise.", orange: false },
-    { title: "Affichage publicitaire", desc: "Panneaux publicitaires, bâches de chantier, palissades et supports extérieurs haute résistance aux intempéries.", orange: true },
-    { title: "Promotions & soldes", desc: "Bâches promotionnelles pour vitrine, entrée de magasin ou parking — rapides à produire, impactantes à l'œil.", orange: false },
-  ];
-  const icons = [
-    <><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></>,
-    <><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>,
-    <><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></>,
-    <><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></>,
+    { title: "Façades commerciales", desc: "Habillage de devantures, stores et vitrines avec des bâches grand format personnalisées aux couleurs de votre marque.", image: "/uploads/impression-sur-baches.jpg", orange: true },
+    { title: "Événements & salons", desc: "Backdrops, fonds de scène, banderoles et habillages pour stands de salon, conférences et événements d'entreprise.", image: "/uploads/roll-up.jpeg", orange: false },
+    { title: "Affichage publicitaire", desc: "Panneaux publicitaires, bâches de chantier, palissades et supports extérieurs haute résistance aux intempéries.", image: "/uploads/covering-stickers.jfif", orange: true },
+    { title: "Promotions & soldes", desc: "Bâches promotionnelles pour vitrine, entrée de magasin ou parking — rapides à produire, impactantes à l'œil.", image: "/uploads/carte-de-visite-octopub.png", orange: false },
   ];
   return (
     <section id="description" className="baches-description-section" style={{ background: "#fff", padding: "100px 40px" }}>
@@ -160,10 +154,8 @@ function Description() {
           <div className="baches-use-cases-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {useCases.map((u, i) => (
               <div key={i} style={{ background: C.bgSoft, border: `1px solid ${C.border}`, borderRadius: 14, padding: "24px 20px" }}>
-                <div style={{ width: 36, height: 36, borderRadius: 8, background: u.orange ? "#FFF0EA" : C.blueLight, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={u.orange ? C.orange : C.blue} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    {icons[i]}
-                  </svg>
+                <div style={{ position: "relative", width: "100%", height: 92, borderRadius: 10, overflow: "hidden", background: C.bgLight, marginBottom: 14 }}>
+                  <Image src={u.image} alt={u.title} fill style={{ objectFit: "cover" }} />
                 </div>
                 <h4 style={{ fontFamily: "Outfit", fontWeight: 500, fontSize: 15, color: C.text, marginBottom: 8 }}>{u.title}</h4>
                 <p style={{ fontFamily: "Inter", fontWeight: 300, fontSize: 13, color: C.textSec, lineHeight: 1.65 }}>{u.desc}</p>
@@ -179,12 +171,12 @@ function Description() {
 // ─── 3. SPECS ──────────────────────────────────────────────
 function Specs() {
   const specs = [
-    { label: "Dimensions max", value: "5 m × ∞", note: "largeur d'impression maximale", icon: "↔", orange: true },
-    { label: "Résolution", value: "1440 dpi", note: "impression haute définition", icon: "◎", orange: false },
-    { label: "Matières", value: "6 types", note: "PVC, textile, papier, toile…", icon: "◈", orange: true },
-    { label: "Finitions", value: "8 options", note: "ourlet, œillets, entoilage…", icon: "◉", orange: false },
-    { label: "Délai standard", value: "48h", note: "commande validée", icon: "◷", orange: true },
-    { label: "Délai express", value: "24h", note: "sur demande, même semaine", icon: "⚡", orange: false },
+    { label: "Dimensions max", value: "5 m × ∞", note: "largeur d'impression maximale", orange: true },
+    { label: "Résolution", value: "1440 dpi", note: "impression haute définition", orange: false },
+    { label: "Matières", value: "6 types", note: "PVC, textile, papier, toile…", orange: true },
+    { label: "Finitions", value: "8 options", note: "ourlet, œillets, entoilage…", orange: false },
+    { label: "Délai standard", value: "48h", note: "commande validée", orange: true },
+    { label: "Délai express", value: "24h", note: "sur demande, même semaine", orange: false },
   ];
   const materials = [
     { name: "PVC Frontlit 510g", desc: "Bâche épaisse ultra-résistante, idéale pour l'extérieur longue durée. Résistance UV, eau, vent.", best: "Façades, palissades, panneaux", orange: true },
@@ -211,7 +203,7 @@ function Specs() {
               <div style={{ background: "#fff", border: `1px solid ${C.border}`, borderRadius: 14, padding: "24px 16px", textAlign: "center", cursor: "default", transition: "border-color 0.22s, transform 0.22s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = C.orange; (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = C.border; (e.currentTarget as HTMLElement).style.transform = ""; }}>
-                <div style={{ fontFamily: "monospace", fontSize: 20, color: s.orange ? C.orange : C.blue, marginBottom: 10 }}>{s.icon}</div>
+                <div style={{ width: 42, height: 3, borderRadius: 999, background: s.orange ? C.orange : C.blue, margin: "0 auto 14px" }} />
                 <div style={{ fontFamily: "Outfit", fontWeight: 600, fontSize: 22, color: C.text, marginBottom: 4 }}>{s.value}</div>
                 <div style={{ fontFamily: "Inter", fontWeight: 500, fontSize: 12, color: s.orange ? C.orange : C.blue, marginBottom: 4 }}>{s.label}</div>
                 <div style={{ fontFamily: "Inter", fontWeight: 300, fontSize: 11, color: C.textMuted, lineHeight: 1.4 }}>{s.note}</div>

@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { X, ArrowRight, Check } from "lucide-react";
 
 const serviceOptions = [
-  { id: "baches", label: "Bâches & Grand Format", icon: "🖼️" },
-  { id: "enseignes", label: "Enseignes & Signalétique", icon: "💡" },
-  { id: "offset", label: "Impression Offset", icon: "🖨️" },
-  { id: "covering", label: "Covering & Stickers", icon: "🚗" },
-  { id: "evenementiel", label: "Supports Événementiels", icon: "🎪" },
-  { id: "digital", label: "Publicité Digitale", icon: "📱" },
+  { id: "baches", label: "Bâches & Grand Format", image: "/uploads/impression-sur-baches.jpg" },
+  { id: "enseignes", label: "Enseignes & Signalétique", image: "/uploads/enseignes-signaletique.jfif" },
+  { id: "offset", label: "Impression Offset", image: "/uploads/impression-offset-digital.png" },
+  { id: "covering", label: "Covering & Stickers", image: "/uploads/covering-stickers.jfif" },
+  { id: "evenementiel", label: "Supports Événementiels", image: "/uploads/roll-up.jpeg" },
+  { id: "digital", label: "Publicité Digitale", image: "/uploads/campagnes-meta-ads.jfif" },
 ];
 
 const budgetOptions = ["< 500 MAD", "500–2000 MAD", "2000–5000 MAD", "5000+ MAD"];
@@ -164,7 +165,14 @@ export default function DevisModal({ open, onClose }: Props) {
                     background: service === opt.label ? "#FFF5F0" : "#FFFFFF",
                   }}
                 >
-                  <span className="text-2xl">{opt.icon}</span>
+                  <span className="relative h-16 w-full overflow-hidden rounded-md bg-bg-secondary">
+                    <Image
+                      src={opt.image || "/FavIcone OctoPub.png"}
+                      alt={opt.label}
+                      fill
+                      className="object-cover"
+                    />
+                  </span>
                   <span className="font-body text-xs text-text-primary font-medium leading-tight">
                     {opt.label}
                   </span>
